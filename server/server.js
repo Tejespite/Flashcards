@@ -8,7 +8,8 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-const authKey = "563c045f-ae58-47ad-8647-832ccaf77dcc:fx"; // Replace with your real DeepL API key
+const authKey = process.env.AUTH_KEY;
+
 const translator = new deepl.Translator(authKey);
 
 app.post("/translate", async (req, res) => {
